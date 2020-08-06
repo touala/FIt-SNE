@@ -158,7 +158,7 @@ fftRtsne <- function(X,
             if (requireNamespace("rsvd")) {
                 message('Using rsvd() to compute the top PCs for initialization.')
                 X_c <- scale(X, center=T, scale=F)
-                rsvd_out <- rsvd(X_c, k=dims)
+                rsvd_out <- rsvd::rsvd(X_c, k=dims)
                 X_top_pcs <- rsvd_out$u %*% diag(rsvd_out$d, nrow=dims)
             }else if(requireNamespace("irlba")) { 
                 message('Using irlba() to compute the top PCs for initialization.')
